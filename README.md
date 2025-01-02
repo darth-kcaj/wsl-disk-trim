@@ -20,6 +20,11 @@ Import the module:
 Import-Module .\WslListDistros.psm1
 ```
 
+Alternatively, download and import the module directly from GitHub:
+```powershell
+Invoke-WebRequest -Uri "https://github.com/darth-kcaj/wsl-disk-trim/raw/main/WslListDistros.psm1" -OutFile "WslListDistros.psm1"; Import-Module .\WslListDistros.psm1
+```
+
 ### Getting WSL Distro VHDX Information
 Retrieve information about the VHDX files for WSL distributions:
 ```powershell
