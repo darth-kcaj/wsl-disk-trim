@@ -32,8 +32,8 @@ function Compact-WSLDistro {
     }
 
     if (-not (Test-IsAdmin)) {
-        Write-Host "This script must be run as an administrator. Exiting..."
-        exit
+        Write-Host "This script must be run as an administrator. Exiting function..."
+        return
     }
 
     Write-Host "Running fstrim on $Distro..."
