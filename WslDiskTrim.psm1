@@ -33,7 +33,7 @@ function Compact-WSLDistro {
 
     if (-not (Test-IsAdmin)) {
         Write-Host "This script must be run as an administrator. Restarting with elevated privileges..."
-        Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`" -Distro `"$Distro`"" -Verb RunAs
+        Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -Command `"& { $PSCommandPath -Distro '$Distro' }`"" -Verb RunAs
         return
     }
 
