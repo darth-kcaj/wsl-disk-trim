@@ -11,8 +11,6 @@ I've made this module as a convenience to myself to quickly perform maintenance 
 
 Install or load the module, then call `Get-WSLDistroVhdInfo` to see your WSL distros and VHDX file information. Use `Compact-WSLDistro` to compact the VHDX files.
 
-
-
 ### Setting Execution Policy
 First, set the execution policy to allow running scripts in the current session:
 ```powershell
@@ -57,3 +55,9 @@ Get-WSLDistroVhdInfo -All
 # Compact the VHDX file for the "Ubuntu" distribution
 Compact-WSLDistro -Distro "Ubuntu"
 ```
+
+### Error Handling and Feedback
+The script now includes error handling for potential issues such as missing VHDX files, failed diskpart operations, and missing registry keys or values. Detailed error messages are logged to provide feedback for troubleshooting.
+
+### Administrative Privileges
+The script requires administrative privileges to run. If the script is not run as an administrator, it will prompt for elevation.
