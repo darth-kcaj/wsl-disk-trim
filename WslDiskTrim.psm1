@@ -80,7 +80,7 @@ function Optimize-WSLDistro {
             return
         }
         Write-Host "Before compaction size: $($beforeSize / 1MB) MB"
-        
+        Write-Host "select vdisk file="$vhdPath""
         $scriptContent = @"
 select vdisk file="$vhdPath"
 attach vdisk readonly
