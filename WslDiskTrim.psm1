@@ -54,7 +54,8 @@ function Optimize-WSLDistro {
     Write-Host "Running fstrim on $Distro..."
     try {
         wsl.exe -d $Distro sudo fstrim /
-    } catch {
+    }
+    catch {
         Write-Error "Failed to run fstrim on ${Distro}: $_"
         return
     }
@@ -62,7 +63,9 @@ function Optimize-WSLDistro {
     Write-Host "Shutting down WSL..."
     try {
         wsl.exe --shutdown
-    } catch {
+        timeout.exe 10
+    }
+    catch {
         Write-Error "Failed to shut down WSL: $_"
         return
     }
@@ -94,7 +97,8 @@ exit
         Write-Host "Running diskpart to compact VHDX..."
         try {
             Start-Process diskpart -ArgumentList "/s $tempPath" -Wait
-        } catch {
+        }
+        catch {
             Write-Error "Failed to run diskpart: $_"
             Remove-Item $tempPath -ErrorAction SilentlyContinue
             return
@@ -120,4 +124,4 @@ exit
     }
 }
 
-Export-ModuleMember -Function Get-WSLDistroVhdInfo,Optimize-WSLDistro
+Export-ModuleMember -Function Get-WSLDistroVhdInfo, Optimize-WSLDistro
