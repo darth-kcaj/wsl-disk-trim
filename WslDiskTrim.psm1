@@ -35,7 +35,7 @@ function Get-WSLDistroVhdInfo {
     }
 }
 
-function Compact-WSLDistro {
+function Optimize-WSLDistro {
     param(
         [Parameter(Mandatory)]
         [string]$Distro
@@ -55,7 +55,7 @@ function Compact-WSLDistro {
     try {
         wsl.exe -d $Distro sudo fstrim /
     } catch {
-        Write-Error "Failed to run fstrim on $Distro: $_"
+        Write-Error "Failed to run fstrim on ${Distro}: $_"
         return
     }
     
@@ -120,4 +120,4 @@ exit
     }
 }
 
-Export-ModuleMember -Function Get-WSLDistroVhdInfo,Compact-WSLDistro
+Export-ModuleMember -Function Get-WSLDistroVhdInfo,Optimize-WSLDistro
