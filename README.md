@@ -9,7 +9,7 @@ This script is provided "as is" and should be used at your own risk. It is recom
 WSL has a great feature where as you add files and data to your virtual Linux Distro, it dynamically expands the disk space allocated to the virtual hard drive. Handy! However (at the time of writing), if you free up space on the WSL OS, the VHD does not dynamically shrink to reclaim the space on the host... not so handy!
 I've made this module as a convenience to myself to quickly perform maintenance on the VHDX files to shrink them back down. Use at your own risk!
 
-Install or load the module, then call `Get-WSLDistroVhdInfo` to see your WSL distros and VHDX file information. Use `Compact-WSLDistro` to compact the VHDX files.
+Install or load the module, then call `Get-WSLDistroVhdInfo` to see your WSL distros and VHDX file information. Use `Optimize-WSLDistro` to compact the VHDX files.
 
 ### Setting Execution Policy
 First, set the execution policy to allow running scripts in the current session:
@@ -37,7 +37,7 @@ Get-WSLDistroVhdInfo
 ### Compacting a WSL Distro VHDX
 Compact the VHDX file for a specific WSL distribution:
 ```powershell
-Compact-WSLDistro -Distro "Ubuntu"
+Optimize-WSLDistro -Distro "Ubuntu"
 ```
 
 ### Example
@@ -53,7 +53,7 @@ Import-Module .\WslListDistros.psm1
 Get-WSLDistroVhdInfo -All
 
 # Compact the VHDX file for the "Ubuntu" distribution
-Compact-WSLDistro -Distro "Ubuntu"
+Optimize-WSLDistro -Distro "Ubuntu"
 ```
 
 ### Error Handling and Feedback
